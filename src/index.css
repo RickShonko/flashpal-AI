@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* FlashPal Design System - AI-Powered Study Buddy */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* FlashPal Brand Colors */
+    --background: 0 0% 98%;
+    --foreground: 220 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 15% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Energetic Green #4E9F3D */
+    --primary: 107 45% 43%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 107 45% 53%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Professional Navy #1A1A2E */
+    --secondary: 240 26% 14%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent: Motivating Yellow #FFD93D */
+    --accent: 49 100% 62%;
+    --accent-foreground: 240 26% 14%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 107 45% 43%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom FlashPal Design Tokens */
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --info: 217 91% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-float: 0 10px 40px hsl(var(--primary) / 0.15);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +80,42 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode FlashPal Colors */
+    --background: 240 26% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 26% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 26% 12%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Keep primary green but adjust for dark mode */
+    --primary: 107 45% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 107 45% 58%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 240 26% 18%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Accent yellow - slightly muted for dark mode */
+    --accent: 49 100% 55%;
+    --accent-foreground: 240 26% 8%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 240 26% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 240 26% 18%;
+    --input: 240 26% 18%;
+    --ring: 107 45% 48%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -102,4 +135,90 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* FlashPal Component Styles */
+@layer components {
+  .flashcard {
+    @apply relative w-full h-64 cursor-pointer;
+    perspective: 1000px;
+  }
+  
+  .flashcard-inner {
+    @apply relative w-full h-full transition-transform duration-700;
+    transform-style: preserve-3d;
+  }
+  
+  .flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flashcard-front,
+  .flashcard-back {
+    @apply absolute inset-0 w-full h-full backface-hidden rounded-xl border;
+    @apply bg-gradient-to-br from-card to-muted;
+    @apply shadow-[0_4px_20px_hsl(var(--primary)/0.1)];
+    @apply flex items-center justify-center p-6 text-center;
+  }
+  
+  .flashcard-back {
+    transform: rotateY(180deg);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.2); }
+  100% { box-shadow: 0 0 30px hsl(var(--primary) / 0.4); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
 }
