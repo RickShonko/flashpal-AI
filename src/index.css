@@ -155,10 +155,11 @@
   
   .flashcard-front,
   .flashcard-back {
-    @apply absolute inset-0 w-full h-full backface-hidden rounded-xl border;
+    @apply absolute inset-0 w-full h-full rounded-xl border;
     @apply bg-gradient-to-br from-card to-muted;
     @apply shadow-[0_4px_20px_hsl(var(--primary)/0.1)];
     @apply flex items-center justify-center p-6 text-center;
+    backface-visibility: hidden;
   }
   
   .flashcard-back {
