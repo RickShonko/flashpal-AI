@@ -12,22 +12,18 @@ const Index = () => {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
 
-  // Optional: Redirect non-authenticated users to auth page
-  // Uncomment the following useEffect if you want to require authentication
-  /*
   useEffect(() => {
-    if (!loading && !user) {
-      navigate("/auth");
+    // If user is logged in and on auth page, redirect to main app
+    if (user && window.location.pathname === '/auth') {
+      navigate('/');
     }
-  }, [user, loading, navigate]);
-  */
+  }, [user, navigate]);
 
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading...</p>
+          <div className="animate-pulse text-primary text-lg">Loading...</div>
         </div>
       </div>
     );
