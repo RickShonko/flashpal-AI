@@ -2,6 +2,8 @@ import { FlashCard } from "@/components/FlashCard";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Plus } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const sampleCards = [
   {
@@ -20,6 +22,8 @@ const sampleCards = [
 
 export const FlashCardDemo = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
   const nextCard = () => {
     setCurrentCardIndex((prev) => (prev + 1) % sampleCards.length);
@@ -27,6 +31,22 @@ export const FlashCardDemo = () => {
 
   const prevCard = () => {
     setCurrentCardIndex((prev) => (prev - 1 + sampleCards.length) % sampleCards.length);
+  };
+
+  const handleCreateCards = () => {
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      navigate('/auth');
+    }
+  };
+
+  const handleGenerateFromNotes = () => {
+    if (user) {
+      navigate('/create-deck');
+    } else {
+      navigate('/auth');
+    }
   };
 
   return (
@@ -70,11 +90,11 @@ export const FlashCardDemo = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="hero" size="lg" className="group">
+            <Button variant="hero" size="lg" className="group" onClick={handleCreateCards}>
               <Plus className="h-5 w-5 mr-2" />
               Create Your Own Cards
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" onClick={handleGenerateFromNotes}>
               <RefreshCw className="h-5 w-5 mr-2" />
               Generate from Notes
             </Button>
