@@ -65,8 +65,8 @@ export const Header = () => {
                 <Button variant="ghost" onClick={() => navigate("/auth")}>
                   Sign In
                 </Button>
-                <Button variant="hero" onClick={() => navigate("/auth")}>
-                  Get Started
+                <Button variant="hero" onClick={() => navigate(user ? "/dashboard" : "/auth")}>
+                  {user ? "Dashboard" : "Get Started"}
                 </Button>
               </>
             )}

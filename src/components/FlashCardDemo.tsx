@@ -5,16 +5,16 @@ import { useState } from "react";
 
 const sampleCards = [
   {
-    question: "What is the process by which plants convert sunlight into energy?",
-    answer: "Photosynthesis - the process where plants use chlorophyll to convert sunlight, carbon dioxide, and water into glucose and oxygen."
+    front: "What is the process by which plants convert sunlight into energy?",
+    back: "Photosynthesis - the process where plants use chlorophyll to convert sunlight, carbon dioxide, and water into glucose and oxygen."
   },
   {
-    question: "What is the capital of France?",
-    answer: "Paris is the capital and largest city of France, located in the north-central part of the country on the Seine River."
+    front: "What is the capital of France?",
+    back: "Paris is the capital and largest city of France, located in the north-central part of the country on the Seine River."
   },
   {
-    question: "What is the formula for calculating the area of a circle?",
-    answer: "A = πr² where A is the area, π (pi) is approximately 3.14159, and r is the radius of the circle."
+    front: "What is the formula for calculating the area of a circle?",
+    back: "A = πr² where A is the area, π (pi) is approximately 3.14159, and r is the radius of the circle."
   }
 ];
 
@@ -45,8 +45,8 @@ export const FlashCardDemo = () => {
           {/* Flashcard Container */}
           <div className="relative">
             <FlashCard
-              question={sampleCards[currentCardIndex].question}
-              answer={sampleCards[currentCardIndex].answer}
+              front={sampleCards[currentCardIndex].front}
+              back={sampleCards[currentCardIndex].back}
               className="pulse-glow"
             />
           </div>

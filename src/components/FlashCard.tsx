@@ -3,12 +3,12 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 interface FlashCardProps {
-  question: string;
-  answer: string;
+  front: string;
+  back: string;
   className?: string;
 }
 
-export const FlashCard = ({ question, answer, className }: FlashCardProps) => {
+export const FlashCard = ({ front, back, className }: FlashCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -28,7 +28,7 @@ export const FlashCard = ({ question, answer, className }: FlashCardProps) => {
               Question
             </div>
             <div className="text-lg font-semibold text-center leading-relaxed">
-              {question}
+              {front}
             </div>
             <div className="text-xs text-muted-foreground">
               Click to reveal answer
@@ -43,7 +43,7 @@ export const FlashCard = ({ question, answer, className }: FlashCardProps) => {
               Answer
             </div>
             <div className="text-lg font-semibold text-center leading-relaxed">
-              {answer}
+              {back}
             </div>
             <div className="text-xs text-muted-foreground">
               Click to see question
