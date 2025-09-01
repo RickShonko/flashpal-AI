@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { FlashCardDemo } from "@/components/FlashCardDemo";
 import { HowItWorks } from "@/components/HowItWorks";
+import { Pricing } from "@/components/Pricing";
 import { Footer } from "@/components/Footer";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -37,6 +38,7 @@ const Index = () => {
         <Features />
         <FlashCardDemo />
         <HowItWorks />
+        <Pricing />
       </main>
       <Footer />
     </div>
