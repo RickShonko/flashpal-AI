@@ -16,7 +16,7 @@ Flashpal is an AI-powered study buddy designed to make learning smarter, faster,
 
 📱 Cross-Platform – Accessible on web and mobile for anytime learning.
 
-**URL**:
+**URL**: https://flashpal-ai.vercel.app/
 
 **COLLABORATORS**
 
