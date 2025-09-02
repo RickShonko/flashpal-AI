@@ -19,23 +19,37 @@ Flashpal is an AI-powered study buddy designed to make learning smarter, faster,
 **URL**:
 
 **COLLABORATORS**
+
 Technical Lead - Eric Shonko
+
 Email: rickyshonko@gmail.com
+
 Portfolio: https://rickshonko.github.io/eric-shonko/
+
 Project Coordinator - Angeline Wamaitha
+
 Email: angelinewamaitha98@gmail.com
+
 Github: https://github.com/Angeilcoder
 
-**URL**: 
+**URL**: https://flashpal-ai.vercel.app/
 
 **PITCH DECK**
 
+CANVA LINK:https://www.canva.com/design/DAGxwK0aYC0/iGrK7wScpzCT4ZXmhq6ZLQ/edit?utm_content=DAGxwK0aYC0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 **DEPLOYMENT LINK**
+
+WEB LINK: https://flashpal-ai.vercel.app/
 
 **VIDEO DEMO**
 The app has instructions when you first login
 
 But just incase you get stuck here is a video with instructions:
+
+On Phones: https://youtube.com/shorts/xQEsjO0b3d0?feature=share
+
+On PCs: https://youtu.be/YE0DK9JKO9c
 
 ## How can I edit this code?
 
@@ -88,11 +102,6 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
-
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain]
+## 🙏 Acknowledgements
+We would like to express our sincere gratitude to Power Learn Project (PLP) for providing us with the skills, mentorship, and training that made this project possible.
+Their support in empowering young developers across Africa has been instrumental in helping us build Flashpal and bring our ideas to life.
