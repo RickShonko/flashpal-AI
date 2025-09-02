@@ -30,10 +30,7 @@ serve(async (req) => {
       global: { headers: { Authorization: authHeader } }
     })
 
-    // Initialize Hugging Face
-    const hf = new HfInference(Deno.env.get('HUGGING_FACE_ACCESS_TOKEN'))
-
-    // Generate flashcards using AI
+    // Prepare AI prompt
     const prompt = `Create flashcards from the following notes. Generate exactly 10 question-answer pairs. Format as JSON array with objects containing "front" (question) and "back" (answer) properties. Make questions diverse and cover key concepts. Here are the notes:
 
 ${notes}
@@ -41,36 +38,47 @@ ${notes}
 Return only valid JSON in this format:
 [{"front": "question 1", "back": "answer 1"}, {"front": "question 2", "back": "answer 2"}]`
 
-    console.log('Calling Hugging Face API...')
-    const response = await hf.textGeneration({
-      model: 'microsoft/DialoGPT-medium',
-      inputs: prompt,
-      parameters: {
-        max_new_tokens: 1000,
-        temperature: 0.7,
-        return_full_text: false
-      }
-    })
+    let flashcards: Array<{ front: string; back: string }> | null = null
 
-    console.log('AI Response:', response.generated_text)
-
-    // Try to extract JSON from the response
-    let flashcards
+    // Try AI first
+    const hfToken = Deno.env.get('HUGGING_FACE_ACCESS_TOKEN')
     try {
-      // Look for JSON array in the response
+      if (!hfToken) throw new Error('Missing HUGGING_FACE_ACCESS_TOKEN')
+
+      const hf = new HfInference(hfToken)
+      console.log('Calling Hugging Face API...')
+      const response = await hf.textGeneration({
+        // Zephyr is lightweight and instruction-tuned
+        model: 'HuggingFaceH4/zephyr-7b-beta',
+        inputs: prompt,
+        parameters: {
+          max_new_tokens: 800,
+          temperature: 0.7,
+          return_full_text: false
+        }
+      })
+
+      console.log('AI Response:', response.generated_text)
+
+      // Try to extract JSON from the response
       const jsonMatch = response.generated_text.match(/\[.*\]/s)
       if (jsonMatch) {
         flashcards = JSON.parse(jsonMatch[0])
       } else {
         throw new Error('No JSON found in response')
       }
-    } catch (parseError) {
-      console.error('Failed to parse AI response, creating fallback flashcards')
-      // Create fallback flashcards if AI parsing fails
-      const chunks = notes.split('.').filter(chunk => chunk.trim().length > 10).slice(0, 5)
-      flashcards = chunks.map((chunk, index) => ({
-        front: `What is the main concept in: "${chunk.trim().substring(0, 50)}..."?`,
-        back: chunk.trim()
+    } catch (aiError) {
+      console.error('AI generation failed, using heuristic fallback:', aiError)
+      // Heuristic fallback: create Q/A from sentences in notes
+      const sentences = notes
+        .replace(/\n+/g, ' ')
+        .split(/(?<=[.!?])\s+/)
+        .filter((s) => s.trim().length > 20)
+
+      const selected = sentences.slice(0, Math.min(10, sentences.length))
+      flashcards = selected.map((s, i) => ({
+        front: `Q${i + 1}: What is the key idea of: "${s.trim().substring(0, 80)}"?`,
+        back: s.trim()
       }))
     }
 
