@@ -1,18 +1,46 @@
-# Welcome to your Lovable project
+# Welcome to Flashpal AI Study Buddy
 
 ## Project info
+ 
+📖 About Flashpal
 
-**URL**: https://lovable.dev/projects/d74f8a4e-491b-4ab1-9092-1ee7fd7119de
+Flashpal is an AI-powered study buddy designed to make learning smarter, faster, and more engaging. It helps students generate flashcards instantly from notes, books, or lectures, while adapting to their personal study pace. With gamification and progress tracking, Flashpal transforms studying from stressful and time-consuming into fun, personalized, and effective learning.
+
+✨ Key Features
+
+⚡ AI-Generated Flashcards – Create study cards in seconds from your own notes.
+
+🎯 Personalized Learning – Adaptive review sessions based on your strengths and weaknesses.
+
+🕹️ Gamified Experience – Earn streaks, rewards, and track your progress.
+
+📱 Cross-Platform – Accessible on web and mobile for anytime learning.
+
+**URL**:
+
+**COLLABORATORS**
+Technical Lead - Eric Shonko
+Email: rickyshonko@gmail.com
+Portfolio: https://rickshonko.github.io/eric-shonko/
+Project Coordinator - Angeline Wamaitha
+Email: angelinewamaitha98@gmail.com
+Github: https://github.com/Angeilcoder
+
+**URL**: 
+
+**PITCH DECK**
+
+**DEPLOYMENT LINK**
+
+**VIDEO DEMO**
+The app has instructions when you first login
+
+But just incase you get stuck here is a video with instructions:
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/d74f8a4e-491b-4ab1-9092-1ee7fd7119de) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -62,12 +90,9 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/d74f8a4e-491b-4ab1-9092-1ee7fd7119de) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Read more here: [Setting up a custom domain]
