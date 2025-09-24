@@ -86,7 +86,7 @@ npm install
 npm run dev
 ```
 Backend Setup
-``bash
+```bash
 cd flashpal-backend
 npm install
 npm run dev
@@ -95,22 +95,26 @@ npm run dev
 Database Setup (PostgreSQL)
 
 Create a database:
-```b
+
 CREATE DATABASE flashpal;
+
 Run schema:
 
+```bash
 sql
 \i schema.sql
+```
 🔑 Environment Variables
 Create a .env file in both frontend and backend.
 
 Frontend .env
-ini
+
+```bash
 VITE_API_URL=http://localhost:5000
 Backend .env
-ini
 DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/flashpal
 PORT=5000
+```
 ⚠️ Don’t forget to add .env to .gitignore.
 
 📊 Database Schema
@@ -136,7 +140,7 @@ Ricky Shonko – Frontend & Project Lead
 Collaborator(s) – Backend & Database
 
 🙏 Acknowledgements
-This project was built as part of training under Power Learn Project (PLP).
+This project was built as part of training under Nachu TVC.
 We appreciate their guidance and support in empowering us to build impactful tech solutions.
 
 📌 Roadmap
