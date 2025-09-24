@@ -16,19 +16,27 @@ It is designed as part of the TVET Innovation Competition under the **Cross-Cutt
 
 ## 📂 Project Structure
 flashpal-backend/
+
 │── index.js # Entry point
+
 │── db.js # Database connection
+
 │── routes/ # API route handlers
+
 │ ├── profiles.js
+
 │ ├── subscriptions.js
+
 │ ├── payments.js
+
 │ └── flashcards.js
+
 │── schema.sql # PostgreSQL schema
+
+
 │── package.json
 │── README.md
 
-yaml
-Copy code
 
 ---
 
@@ -71,6 +79,7 @@ Start development server:
 ```bash
 npm run dev
 ```
+---
 📌 API Endpoints
 
 Profiles
@@ -79,22 +88,29 @@ POST /profiles/login → Create/login a profile
 
 GET /profiles/:id → Fetch user profile
 
+---
+
 Flashcards
 
 POST /flashcards → Add flashcard
 
 GET /flashcards/:deckId → Fetch flashcards in a deck
 
+---
+
 Subscriptions
 POST /subscriptions → Subscribe to a plan
 
 GET /subscriptions/:userId → Get user subscription
 
+---
 Payments
 
 POST /payments/initiate → Start Paystack payment
 
 GET /payments/:userId → Get user payments
+
+---
 
 📖 Thematic Justification
 Flashpal addresses Cross-Cutting Issues in TVET innovation by:
@@ -106,6 +122,7 @@ Supporting inclusive learning for students with different learning needs.
 Reducing exam stress and improving mental well-being.
 
 Empowering youth with skills that strengthen all thematic areas (manufacturing, health, food security, housing, and greening).
+---
 
 👥 Contributors
 Ricky Shonko (Lead Developer)
