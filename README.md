@@ -134,16 +134,20 @@ flashcards – Individual cards
 
 study_sessions – Study history
 
-👥 Contributors
+---
+
+## 👥 Contributors
 Ricky Shonko – Frontend & Project Lead
 
 Collaborator(s) – Backend & Database
 
-🙏 Acknowledgements
+---
+
+## 🙏 Acknowledgements
 This project was built as part of training under Nachu TVC.
 We appreciate their guidance and support in empowering us to build impactful tech solutions.
 
-📌 Roadmap
+##📌 Roadmap
  Core flashcard system
 
  User authentication
@@ -158,5 +162,6 @@ We appreciate their guidance and support in empowering us to build impactful tec
 
  AI-powered flashcard generation
 
-📜 License
+---
+## 📜 License
 This project is licensed under the MIT License.
