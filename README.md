@@ -1,133 +1,158 @@
-# Flashpal Backend
-
-Flashpal is a smart learning assistant that helps students retain knowledge using **AI-powered spaced repetition** and **flashcards**.  
-It is designed as part of the TVET Innovation Competition under the **Cross-Cutting Issues** theme — focusing on digital transformation, inclusivity, and mental health support in education.
+# Flashpal 💡  
+An AI-powered study buddy that helps students create, review, and master concepts through smart flashcards, personalized learning sessions, and progress tracking.  
 
 ---
 
-## 🚀 Features
-- User profiles with authentication
-- Subscription plans & payments (Paystack integration)
-- Flashcard deck creation & management
-- Intelligent study sessions (difficulty tracking & spaced repetition)
-- REST API for frontend integration
+## 🚀 Project Overview  
+Flashpal is a web app built to help students overcome common challenges in learning such as:  
+- Lack of personalized revision tools  
+- Poor knowledge retention with traditional study methods  
+- Limited access to adaptive study companions  
+
+The app uses **AI and flashcards** to create a smart, engaging, and interactive study experience.  
 
 ---
 
-## 📂 Project Structure
-flashpal-backend/
+## 🖼️ Demo  
+👉 [Live App on Vercel](https://your-vercel-link-here)  
 
-│── index.js # Entry point
+---
 
-│── db.js # Database connection
+## ✨ Features  
+- 👤 **User Profiles** – Sign up, log in, and manage your study profile.  
+- 🧠 **Flashcards** – Create decks, add flashcards, and practice recall.  
+- ⏳ **Spaced Repetition** – Smart scheduling of study sessions.  
+- 📊 **Progress Tracking** – Track performance and review history.  
+- 💳 **Subscriptions** – (Coming Soon) Payment integration with Paystack.  
 
-│── routes/ # API route handlers
+---
 
-│ ├── profiles.js
+## 🛠️ Tech Stack  
+### Frontend  
+- [Vite](https://vitejs.dev/)
+  
+- [React](https://react.dev/)
+  
+- [TypeScript](https://www.typescriptlang.org/)
+ 
+- [Tailwind CSS](https://tailwindcss.com/)
+   
+- [shadcn/ui](https://ui.shadcn.com/)  
 
-│ ├── subscriptions.js
+### Backend  
+- [Node.js](https://nodejs.org/)
+  
+- [Express.js](https://expressjs.com/)
+  
+- [PostgreSQL](https://www.postgresql.org/)  
 
-│ ├── payments.js
+### Deployment  
+- [Vercel](https://vercel.com/) – Frontend hosting
+  
+- [Render / Railway / Supabase (migration ongoing)] – Backend & Database hosting  
 
-│ └── flashcards.js
+---
 
-│── schema.sql # PostgreSQL schema
+## 📂 Project Structure  
+flashpal/
+│
+├── flashpal-frontend/ # React + Vite frontend
+│ ├── src/
+│ ├── public/
+│ └── package.json
+│
+├── flashpal-backend/ # Node.js + Express backend
+│ ├── index.js
+│ ├── schema.sql
+│ └── package.json
+│
+└── README.md
 
-
-│── package.json
-│── README.md
 
 
 ---
 
-## 🛠️ Tech Stack
-- **Backend Framework:** Node.js + Express  
-- **Database:** PostgreSQL  
-- **ORM/Query Tool:** pg (node-postgres)  
-- **Authentication:** JWT (to be added)  
-- **Payments:** Paystack API  
+## ⚙️ Installation & Setup  
 
----
-
-## 📦 Installation
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/flashpal-backend.git
-   cd flashpal-backend
-Install dependencies:
-
+### Clone Repository  
 ```bash
+git clone https://github.com/RickShonko/flashpal-AI.git
+cd flashpal-AI
+```
+Frontend Setup
+```bash
+cd flashpal-frontend
 npm install
-```
-Configure environment variables:
-
-Create a .env file in the root directory:
-
-```bash
-env
-DATABASE_URL=postgres://postgres:yourpassword@localhost:5432/flashpal
-PORT=5000
-PAYSTACK_SECRET_KEY=your_paystack_secret_key
-```
-Run database schema:
-
-```bash
-psql -U postgres -d flashpal -f schema.sql
-Start development server:
-```
-
-```bash
 npm run dev
 ```
----
-📌 API Endpoints
+Backend Setup
+``bash
+cd flashpal-backend
+npm install
+npm run dev
+```
 
-Profiles
+Database Setup (PostgreSQL)
 
-POST /profiles/login → Create/login a profile
+Create a database:
+```b
+CREATE DATABASE flashpal;
+Run schema:
 
-GET /profiles/:id → Fetch user profile
+sql
+\i schema.sql
+🔑 Environment Variables
+Create a .env file in both frontend and backend.
 
----
+Frontend .env
+ini
+VITE_API_URL=http://localhost:5000
+Backend .env
+ini
+DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/flashpal
+PORT=5000
+⚠️ Don’t forget to add .env to .gitignore.
 
-Flashcards
+📊 Database Schema
+Flashpal includes:
 
-POST /flashcards → Add flashcard
+profiles – User profiles
 
-GET /flashcards/:deckId → Fetch flashcards in a deck
+subscription_plans – Plans and pricing
 
----
+subscriptions – User subscriptions
 
-Subscriptions
-POST /subscriptions → Subscribe to a plan
+payments – Payment records
 
-GET /subscriptions/:userId → Get user subscription
+flashcard_decks – Flashcard collections
 
----
-Payments
+flashcards – Individual cards
 
-POST /payments/initiate → Start Paystack payment
-
-GET /payments/:userId → Get user payments
-
----
-
-📖 Thematic Justification
-Flashpal addresses Cross-Cutting Issues in TVET innovation by:
-
-Enhancing digital literacy through modern AI-powered learning tools.
-
-Supporting inclusive learning for students with different learning needs.
-
-Reducing exam stress and improving mental well-being.
-
-Empowering youth with skills that strengthen all thematic areas (manufacturing, health, food security, housing, and greening).
----
+study_sessions – Study history
 
 👥 Contributors
-Ricky Shonko (Lead Developer)
+Ricky Shonko – Frontend & Project Lead
 
+Collaborator(s) – Backend & Database
+
+🙏 Acknowledgements
+This project was built as part of training under Power Learn Project (PLP).
+We appreciate their guidance and support in empowering us to build impactful tech solutions.
+
+📌 Roadmap
+ Core flashcard system
+
+ User authentication
+
+ Database schema setup
+
+ Deployment on Vercel
+
+ Payment integration (Paystack)
+
+ Mobile responsive optimization
+
+ AI-powered flashcard generation
 
 📜 License
-MIT License.
-
+This project is licensed under the MIT License.
