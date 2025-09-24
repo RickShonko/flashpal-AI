@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const pricingPlans = [
   {
     name: "Free",
-    price: "$0",
+    price: "Ksh 0",
     period: "forever",
     description: "Perfect for getting started",
     features: [

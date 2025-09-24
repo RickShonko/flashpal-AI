@@ -18,9 +18,11 @@ export const Footer = () => {
               AI-powered study companion that transforms your notes into interactive flashcards. Study smarter, not harder.
             </p>
             <div className="flex space-x-2">
+            
               <Button variant="ghost" size="icon">
                 <Twitter className="h-4 w-4" />
               </Button>
+            
               <Button variant="ghost" size="icon">
                 <Github className="h-4 w-4" />
               </Button>
