@@ -21,7 +21,7 @@ const pricingPlans = [
   },
   {
     name: "Pro",
-    price: "$9.99",
+    price: "100Ksh",
     period: "per month",
     description: "For serious learners",
     features: [
@@ -38,7 +38,7 @@ const pricingPlans = [
   },
   {
     name: "Team",
-    price: "$19.99",
+    price: "2000Ksh",
     period: "per month",
     description: "For educators and teams",
     features: [
