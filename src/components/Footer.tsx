@@ -65,7 +65,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 FlashPal. All rights reserved. Built with ❤️ for students worldwide.</p>
+          <p>&copy; 2025 FlashPal. All rights reserved.Eric Shonko. Built with ❤️ for the KATTI Regional Competition.</p>
         </div>
       </div>
     </footer>
