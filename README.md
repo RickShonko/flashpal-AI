@@ -57,13 +57,19 @@ The app uses **AI and flashcards** to create a smart, engaging, and interactive 
 flashpal/
 │
 ├── flashpal-frontend/ # React + Vite frontend
+
 │ ├── src/
+
 │ ├── public/
+
 │ └── package.json
 │
 ├── flashpal-backend/ # Node.js + Express backend
+
 │ ├── index.js
+
 │ ├── schema.sql
+
 │ └── package.json
 │
 └── README.md
