@@ -4,33 +4,33 @@ import { Brain, Zap, Smartphone, Users, Target, Shield } from "lucide-react";
 const features = [
   {
     icon: Brain,
-    title: "AI-Powered Generation",
-    description: "Transform any study material into interactive flashcards using advanced AI that understands context and creates meaningful questions."
+    title: "Competency-Based Learning",
+    description: "Each deck and flashcard is mapped to real TVET learning outcomes so students can learn the exact skills needed in their course and trade."
   },
   {
     icon: Zap,
-    title: "Instant Creation",
-    description: "Paste your notes and get 5 customized flashcards in seconds. No manual work required - just intelligent automation."
+    title: "AI Study Support",
+    description: "Turn notes, class material, and practical examples into revision flashcards that help students study faster and remember more."
   },
   {
     icon: Smartphone,
-    title: "Cross-Platform",
-    description: "Study anywhere with our responsive web app and mobile version. Seamless sync across all your devices."
+    title: "Tutorial & Resource Access",
+    description: "Students can revisit key ideas, practical tutorials, and structured learning materials as they prepare for tasks and assessments."
   },
   {
     icon: Users,
-    title: "Collaborative Learning",
-    description: "Share flashcard sets with classmates and study groups. Learn together and boost retention through social learning."
+    title: "Teacher & Student Collaboration",
+    description: "Lecturers and trainers can assign learning decks, guide students, and monitor progress in a way that supports TVET delivery."
   },
   {
     icon: Target,
-    title: "Smart Analytics",
-    description: "Track your progress, identify weak areas, and optimize your study sessions with detailed performance insights."
+    title: "Career Path Awareness",
+    description: "Learners can connect what they study to job roles, industry skills, and career pathways in their chosen field."
   },
   {
     icon: Shield,
-    title: "Secure & Private",
-    description: "Your study materials are encrypted and secure. We respect your privacy and never share your content."
+    title: "Progress Tracking",
+    description: "Follow competency growth, identify weak areas, and build confidence before practical assessments, cert exams, and workplace tasks."
   }
 ];
 
@@ -40,13 +40,13 @@ export const Features = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold">
-            Everything You Need to{" "}
+            Built for TVET students, trainers, and industry-ready learning{" "}
             <span className="hero-gradient bg-clip-text text-transparent">
-              Ace Your Studies
+              in one place
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            FlashPal combines the power of AI with proven learning techniques to help you study more effectively.
+            FlashPal supports practical, outcome-based learning by making every topic easier to understand, revise, and connect to real-world careers.
           </p>
         </div>
 

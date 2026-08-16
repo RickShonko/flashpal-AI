@@ -38,13 +38,13 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-foreground hover:text-primary transition-colors">
-              Features
+              TVET Features
             </a>
             <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">
-              How it Works
+              Learning Flow
             </a>
             <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
-              Pricing
+              Plans
             </a>
           </nav>
 
@@ -93,13 +93,13 @@ export const Header = () => {
         )}>
           <nav className="pb-4 pt-2 space-y-3">
             <a href="#features" className="block py-2 text-foreground hover:text-primary transition-colors">
-              Features
+              TVET Features
             </a>
             <a href="#how-it-works" className="block py-2 text-foreground hover:text-primary transition-colors">
-              How it Works
+              Learning Flow
             </a>
             <a href="#pricing" className="block py-2 text-foreground hover:text-primary transition-colors">
-              Pricing
+              Plans
             </a>
             <div className="pt-4 space-y-2">
               {user ? (

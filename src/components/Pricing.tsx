@@ -78,10 +78,10 @@ export const Pricing = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Choose Your Learning Plan
+            Flexible support for TVET learners and trainers
           </h2>
           <p className="text-lg text-muted-foreground">
-            Start free and upgrade as you grow. All plans include our core flashcard features.
+            Start free and scale up as your study needs grow. Each plan supports practical learning, revision, and career-readiness preparation.
           </p>
         </div>
 

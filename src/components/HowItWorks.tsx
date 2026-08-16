@@ -5,26 +5,26 @@ const steps = [
   {
     icon: Upload,
     step: "01",
-    title: "Upload Your Notes",
-    description: "Simply paste your study materials, lecture notes, or textbook content into FlashPal's smart editor."
+    title: "Upload Course Content",
+    description: "Students and trainers upload notes, practical tasks, and lessons linked to real TVET modules and industry skills."
   },
   {
     icon: Sparkles,
     step: "02", 
-    title: "AI Generates Cards",
-    description: "Our advanced AI analyzes your content and creates 5 targeted flashcards with questions and detailed answers."
+    title: "Map to Competencies",
+    description: "FlashPal turns your material into targeted revision cards aligned with competency outcomes, practical tasks, and learning goals."
   },
   {
     icon: Play,
     step: "03",
-    title: "Start Studying",
-    description: "Review your flashcards with interactive flip animations. Track your progress as you learn."
+    title: "Study and Practice",
+    description: "Learners review flashcards, reinforce concepts, and build confidence through repetition and guided study."
   },
   {
     icon: BookOpen,
     step: "04",
-    title: "Master the Material",
-    description: "Save your sets, share with friends, and revisit challenging topics. Perfect your knowledge retention."
+    title: "Prepare for Work",
+    description: "Students connect learning to career roles, tutorials, and industry expectations so they are ready for assessments and employment."
   }
 ];
 
@@ -34,10 +34,10 @@ export const HowItWorks = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold">
-            How FlashPal Works
+            How FlashPal Supports TVET Learning
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Transform your study routine in four simple steps. From notes to mastery in minutes.
+            In four steps, students move from course content to competency mastery, stronger confidence, and clearer career direction.
           </p>
         </div>
 

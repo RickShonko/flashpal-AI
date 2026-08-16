@@ -15,39 +15,38 @@ export const Hero = () => {
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
                 <Sparkles className="h-4 w-4" />
-                <span>AI-Powered Learning</span>
+                <span>TVET Learning Platform</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Study Smarter with{" "}
+                Learn skills for the job market with{" "}
                 <span className="hero-gradient bg-clip-text text-transparent">
-                  AI Flashcards
+                  competency-based flashcards
                 </span>
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
-                Transform your study notes into interactive flashcards instantly. 
-                FlashPal uses AI to create personalized learning experiences that help you remember more.
+                FlashPal helps TVET learners understand their course content, build practical competency, access tutorials, and discover career paths through smart revision and study support.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" className="group">
-                Start Learning Now
+                Explore TVET Learning
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" size="lg">
-                Watch Demo
+                View Career Paths
               </Button>
             </div>
 
             <div className="flex items-center space-x-8 pt-4">
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Users className="h-4 w-4" />
-                <span>Join 10,000+ students</span>
+                <span>Built for TVET students & trainers</span>
               </div>
               <div className="text-sm text-muted-foreground">
-                ⭐⭐⭐⭐⭐ 4.9/5 rating
+                ✅ Skills, study support, career guidance
               </div>
             </div>
           </div>
