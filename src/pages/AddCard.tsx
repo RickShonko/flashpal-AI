@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Save } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,6 +15,7 @@ const AddCard = () => {
   const { deckId } = useParams<{ deckId: string }>();
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
+  const [competenciesInput, setCompetenciesInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
   const { toast } = useToast();
@@ -46,6 +48,9 @@ const AddCard = () => {
             deck_id: deckId,
             front: front.trim(),
             back: back.trim(),
+            competencies: competenciesInput
+              ? competenciesInput.split(',').map((c) => c.trim()).filter(Boolean)
+              : [],
           },
         ]);
 
@@ -119,6 +124,17 @@ const AddCard = () => {
                       onChange={(e) => setBack(e.target.value)}
                       required
                     />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="card-competencies">Card Competencies (comma-separated)</Label>
+                    <Input
+                      id="card-competencies"
+                      placeholder="e.g., Use hand tools, Read technical drawings"
+                      value={competenciesInput}
+                      onChange={(e) => setCompetenciesInput(e.target.value)}
+                    />
+                    <p className="text-xs text-muted-foreground">Optionally tag this card with one or more competencies from the deck.</p>
                   </div>
 
                   <div className="flex gap-3">

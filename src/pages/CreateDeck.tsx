@@ -15,6 +15,7 @@ import { useToast } from '@/components/ui/use-toast';
 const CreateDeck = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [competenciesInput, setCompetenciesInput] = useState('');
   const [notes, setNotes] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [generatingCards, setGeneratingCards] = useState(false);
@@ -49,6 +50,9 @@ const CreateDeck = () => {
             user_id: user.id,
             title: title.trim(),
             description: description.trim() || null,
+            competencies: competenciesInput
+              ? competenciesInput.split(',').map((c) => c.trim()).filter(Boolean)
+              : [],
           },
         ])
         .select()
@@ -111,6 +115,9 @@ const CreateDeck = () => {
             user_id: user.id,
             title: title.trim(),
             description: description.trim() || "Generated from notes",
+            competencies: competenciesInput
+              ? competenciesInput.split(',').map((c) => c.trim()).filter(Boolean)
+              : [],
           },
         ])
         .select()
@@ -207,6 +214,17 @@ const CreateDeck = () => {
                         onChange={(e) => setDescription(e.target.value)}
                       />
                     </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="competencies">Competencies / Learning Outcomes (comma-separated)</Label>
+                          <Input
+                            id="competencies"
+                            placeholder="e.g., Identify components, Perform basic troubleshooting"
+                            value={competenciesInput}
+                            onChange={(e) => setCompetenciesInput(e.target.value)}
+                          />
+                          <p className="text-xs text-muted-foreground">Add competency tags to map this deck to TVET learning outcomes.</p>
+                        </div>
 
                     <div className="flex gap-3">
                       <Button

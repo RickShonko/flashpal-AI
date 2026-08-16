@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Plus, Play, Edit, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { FlashCard } from '@/components/FlashCard';
 import { useAuth } from '@/hooks/useAuth';
@@ -15,6 +16,7 @@ interface Deck {
   title: string;
   description: string;
   created_at: string;
+  competencies?: string[];
 }
 
 interface Flashcard {
@@ -22,12 +24,14 @@ interface Flashcard {
   front: string;
   back: string;
   created_at: string;
+  competencies?: string[];
 }
 
 const DeckView = () => {
   const { deckId } = useParams<{ deckId: string }>();
   const [deck, setDeck] = useState<Deck | null>(null);
   const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
+  const [competencyFilter, setCompetencyFilter] = useState('');
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const { toast } = useToast();
@@ -168,6 +172,20 @@ const DeckView = () => {
             <div className="flex-1">
               <h1 className="text-3xl font-bold">{deck.title}</h1>
               <p className="text-muted-foreground">{deck.description || 'No description'}</p>
+                {deck.competencies && deck.competencies.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {deck.competencies.map((c) => (
+                      <Badge
+                        key={c}
+                        onClick={() => setCompetencyFilter(c)}
+                        className="cursor-pointer"
+                        variant="outline"
+                      >
+                        {c}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
             </div>
             <Badge variant="secondary" className="text-sm">
               {flashcards.length} cards
@@ -183,6 +201,13 @@ const DeckView = () => {
               <Plus className="w-4 h-4" />
               Add Card
             </Button>
+            <div className="ml-auto w-64">
+              <Input
+                placeholder="Filter by competency"
+                value={competencyFilter}
+                onChange={(e) => setCompetencyFilter(e.target.value)}
+              />
+            </div>
           </div>
 
           {flashcards.length === 0 ? (
@@ -201,7 +226,13 @@ const DeckView = () => {
             </Card>
           ) : (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {flashcards.map((card) => (
+              {flashcards
+                .filter((card) => {
+                  if (!competencyFilter.trim()) return true;
+                  const f = competencyFilter.trim().toLowerCase();
+                  return (card.competencies || []).some((c) => c.toLowerCase() === f);
+                })
+                .map((card) => (
                 <Card key={card.id} className="card-gradient relative group">
                   <CardHeader className="pb-3">
                     <div className="flex justify-between items-start">
@@ -230,6 +261,15 @@ const DeckView = () => {
                   </CardHeader>
                   <CardContent className="pt-0">
                     <FlashCard front={card.front} back={card.back} />
+                    {card.competencies && card.competencies.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {card.competencies.map((c) => (
+                          <Badge key={c} variant="secondary" className="text-xs">
+                            {c}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               ))}

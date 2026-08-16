@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, BookOpen, Clock, Target } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/hooks/useAuth';
@@ -15,12 +16,14 @@ interface FlashcardDeck {
   description: string;
   created_at: string;
   flashcard_count?: number;
+  competencies?: string[];
 }
 
 const Dashboard = () => {
   const [decks, setDecks] = useState<FlashcardDeck[]>([]);
+  const [competencyFilter, setCompetencyFilter] = useState('');
   const [loading, setLoading] = useState(true);
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -96,10 +99,23 @@ const Dashboard = () => {
             <h1 className="text-3xl font-bold">Your Flashcard Decks</h1>
             <p className="text-muted-foreground">Manage and study your flashcard collections</p>
           </div>
-          <Button onClick={handleCreateDeck} className="gap-2">
-            <Plus className="w-4 h-4" />
-            Create New Deck
-          </Button>
+          <div className="flex items-center gap-3">
+            {(profile?.role === 'teacher' || profile?.role === 'admin') && (
+              <Button onClick={() => navigate('/admin')} variant="ghost" className="gap-2">Admin</Button>
+            )}
+            <Button onClick={handleCreateDeck} className="gap-2">
+              <Plus className="w-4 h-4" />
+              Create New Deck
+            </Button>
+          </div>
+        </div>
+
+        <div className="mb-6 w-96">
+          <Input
+            placeholder="Filter decks by competency"
+            value={competencyFilter}
+            onChange={(e) => setCompetencyFilter(e.target.value)}
+          />
         </div>
 
         {decks.length === 0 ? (
@@ -118,7 +134,13 @@ const Dashboard = () => {
           </Card>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {decks.map((deck) => (
+            {decks
+              .filter((deck) => {
+                if (!competencyFilter.trim()) return true;
+                const f = competencyFilter.trim().toLowerCase();
+                return (deck.competencies || []).some((c) => c.toLowerCase() === f);
+              })
+              .map((deck) => (
               <Card 
                 key={deck.id} 
                 className="card-gradient cursor-pointer transition-all hover:shadow-card transform hover:-translate-y-1"
@@ -131,6 +153,15 @@ const Dashboard = () => {
                       <CardDescription className="line-clamp-2">
                         {deck.description || 'No description'}
                       </CardDescription>
+                      {deck.competencies && deck.competencies.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {deck.competencies.map((c) => (
+                            <Badge key={c} onClick={(e) => { e.stopPropagation(); setCompetencyFilter(c); }} className="cursor-pointer" variant="outline">
+                              {c}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
                     </div>
                     <Badge variant="secondary" className="gap-1">
                       <BookOpen className="w-3 h-3" />
