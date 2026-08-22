@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, BookOpen, Clock, Target } from 'lucide-react';
+import { BarChart3, BriefcaseBusiness, Plus, BookOpen, Clock, Target } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -103,6 +103,14 @@ const Dashboard = () => {
             {(profile?.role === 'teacher' || profile?.role === 'admin') && (
               <Button onClick={() => navigate('/admin')} variant="ghost" className="gap-2">Admin</Button>
             )}
+            <Button onClick={() => navigate('/reports')} variant="outline" className="gap-2">
+              <BarChart3 className="w-4 h-4" />
+              Reports
+            </Button>
+            <Button onClick={() => navigate('/career-paths')} variant="outline" className="gap-2">
+              <BriefcaseBusiness className="w-4 h-4" />
+              Careers
+            </Button>
             <Button onClick={handleCreateDeck} className="gap-2">
               <Plus className="w-4 h-4" />
               Create New Deck

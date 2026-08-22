@@ -43,9 +43,6 @@ export const Header = () => {
             <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">
               Learning Flow
             </a>
-            <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
-              Plans
-            </a>
           </nav>
 
           {/* Desktop Actions */}
@@ -97,9 +94,6 @@ export const Header = () => {
             </a>
             <a href="#how-it-works" className="block py-2 text-foreground hover:text-primary transition-colors">
               Learning Flow
-            </a>
-            <a href="#pricing" className="block py-2 text-foreground hover:text-primary transition-colors">
-              Plans
             </a>
             <div className="pt-4 space-y-2">
               {user ? (

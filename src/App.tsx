@@ -9,8 +9,10 @@ import Dashboard from "./pages/Dashboard";
 import CreateDeck from "./pages/CreateDeck";
 import DeckView from "./pages/DeckView";
 import AddCard from "./pages/AddCard";
+import StudyDeck from "./pages/StudyDeck";
 import Admin from "./pages/Admin";
 import Reports from "./pages/Reports";
+import CareerPaths from "./pages/CareerPaths";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,8 +30,10 @@ const App = () => (
           <Route path="/create-deck" element={<CreateDeck />} />
           <Route path="/deck/:deckId" element={<DeckView />} />
           <Route path="/deck/:deckId/add-card" element={<AddCard />} />
+          <Route path="/deck/:deckId/study" element={<StudyDeck />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/career-paths" element={<CareerPaths />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

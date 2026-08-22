@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 export const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background decoration */}
@@ -31,11 +34,11 @@ export const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="hero" size="lg" className="group" onClick={() => navigate('/dashboard')}>
                 Explore TVET Learning
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={() => navigate('/career-paths')}>
                 View Career Paths
               </Button>
             </div>

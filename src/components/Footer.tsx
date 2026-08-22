@@ -37,7 +37,6 @@ export const Footer = () => {
             <h3 className="font-semibold">Product</h3>
             <div className="space-y-2 text-sm">
               <a href="#features" className="block hover:text-primary transition-colors">Features</a>
-              <a href="#pricing" className="block hover:text-primary transition-colors">Pricing</a>
               <a href="#demo" className="block hover:text-primary transition-colors">Demo</a>
               <a href="#api" className="block hover:text-primary transition-colors">API</a>
             </div>
